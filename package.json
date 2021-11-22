@@ -2,13 +2,11 @@
   "name": "form-anywhere",
   "private": true,
   "scripts": {
-    "db:introspect": "prisma db pull",
-    "db:generate": "prisma generate",
-    "db:reset": "prisma migrate reset",
-    "db:push": "prisma db push",
+    "db:push": "prisma db push --force-reset --accept-data-loss",
     "db:seed": "prisma db seed",
     "dev": "next dev",
-    "prebuild": "npm run db:generate",
+    "xprebuild": "prisma generate && prisma migrate deploy",
+    "prebuild": "npm run db:push",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
