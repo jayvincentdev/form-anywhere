@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import Router from "next/router";
 import useSWR from "swr";
 
-import fetcher from "./fetcher";
-import { UserResponse } from "../pages/api/user";
-import { LoginResponse } from "../pages/api/login";
+import fetcher from "lib/fetcher";
+import { UserResponse } from "api/user";
+import { LoginResponse } from "api/login";
 
 export default function useUser({ redirectTo = "", redirectIfFound = false } = {}) {
   const { data: user, mutate: mutateUser } = useSWR<UserResponse | LoginResponse>(

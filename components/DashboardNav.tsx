@@ -15,11 +15,11 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
-import useTeam from "../lib/useTeam";
-import useUser from "../lib/useUser";
-import { LoginResponse } from "../pages/api/login";
+import useTeam from "lib/useTeam";
+import useUser from "lib/useUser";
+import { LoginResponse } from "api/login";
 
-import ActiveLink from "./ActiveLink";
+import ActiveLink from "components/ActiveLink";
 
 export default function DashboardLeft() {
   const toast = useToast();

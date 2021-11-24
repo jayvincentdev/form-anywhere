@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 import { Box } from "@chakra-ui/react";
 
-import DashboardNav from "./DashboardNav";
-import DashboardTitle from "./DashboardTitle";
+import DashboardNav from "components/DashboardNav";
+import DashboardTitle from "components/DashboardTitle";
 
 export default function Dashboard({
   title = "Dashboard",

@@ -1,11 +1,10 @@
 import { Spinner } from "@chakra-ui/react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 
-import useTeam from "../../../lib/useTeam";
-import useUser from "../../../lib/useUser";
+import useTeam from "lib/useTeam";
+import useUser from "lib/useUser";
 
-import Dashboard from "../../../components/Dashboard";
+import Dashboard from "components/Dashboard";
 
 const DashboardPage: NextPage = () => {
   const { user } = useUser({ redirectTo: "/login" });

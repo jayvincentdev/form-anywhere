@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-import useUser from "../lib/useUser";
+import useUser from "lib/useUser";
 
 const Login: NextPage = () => {
   // Check if user is already logged in and redirect to Dashboard

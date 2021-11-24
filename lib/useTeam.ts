@@ -1,9 +1,9 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 
-import { TeamResponse } from "../pages/api/teams/[slug]";
+import { TeamResponse } from "api/teams/[slug]";
 
-import fetcher from "./fetcher";
+import fetcher from "lib/fetcher";
 
 export default function useTeam() {
   const router = useRouter();
