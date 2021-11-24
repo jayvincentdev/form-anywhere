@@ -12,7 +12,7 @@ export const prisma =
         url: process.env.DATABASE_URL_POOLED,
       },
     },
-    log: ["query"],
+    // log: ["query"],
   });
 
 if (process.env.NODE_ENV !== "production") {

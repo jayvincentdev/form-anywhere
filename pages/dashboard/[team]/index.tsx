@@ -2,19 +2,22 @@ import { Spinner } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
+import useTeam from "../../../lib/useTeam";
 import useUser from "../../../lib/useUser";
 
+import Dashboard from "../../../components/Dashboard";
+
 const DashboardPage: NextPage = () => {
-  const router = useRouter();
   const { user } = useUser({ redirectTo: "/login" });
+  const { team, error } = useTeam();
 
-  const { team } = router.query;
-
-  if (!user || !user.isLoggedIn) {
+  if (!user || !user.isLoggedIn || !team) {
     return <Spinner />;
   }
 
-  return <>TEAM PAGE.</>;
+  if (error) return <>Could not find team.</>;
+
+  return <Dashboard>Blah.</Dashboard>;
 };
 
 export default DashboardPage;
