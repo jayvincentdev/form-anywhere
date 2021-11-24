@@ -2,6 +2,7 @@
   "name": "form-anywhere",
   "private": true,
   "scripts": {
+    "db:generate": "prisma generate",
     "db:push": "prisma db push --force-reset --accept-data-loss",
     "db:seed": "prisma db seed",
     "dev": "next dev",
@@ -9,18 +10,28 @@
     "prebuild": "npm run db:push",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier:write": "prettier --write \"**/*.{ts,tsx,js}\"",
+    "prettier:check": "prettier --check \"**/*.{ts,tsx,js}\""
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.7.2",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
     "@prisma/client": "^3.5.0",
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
+    "formik": "^2.2.9",
+    "framer-motion": "^4.1.17",
+    "iron-session": "^6.0.2",
     "nanoid": "^3.1.30",
     "next": "12.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^3.9.2",
@@ -29,6 +40,8 @@
     "@types/react": "17.0.35",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
     "prisma": "^3.5.0",
     "ts-node": "^10.4.0",
     "typescript": "4.4.4"
