@@ -1,10 +1,13 @@
-import { Team, UsersOnTeams } from "@prisma/client";
+import { Team, Role, User } from "@prisma/client";
 
 import { prisma } from "../../../lib/prisma";
 import { withSessionRoute } from "../../../lib/withSession";
 
 export type TeamResponse = Team & {
-  users: UsersOnTeams[];
+  users: {
+    user: User;
+    role: Role;
+  }[];
 };
 
 export default withSessionRoute<TeamResponse>(async (req, res) => {
@@ -23,7 +26,12 @@ export default withSessionRoute<TeamResponse>(async (req, res) => {
       slug: teamSlug,
     },
     include: {
-      users: true,
+      users: {
+        select: {
+          role: true,
+          user: true,
+        },
+      },
     },
   });
 
@@ -32,7 +40,7 @@ export default withSessionRoute<TeamResponse>(async (req, res) => {
   }
 
   // Does logged in user belong to the team?
-  const userBelongsToTeam = team.users.some((pivot) => pivot.userId === userId);
+  const userBelongsToTeam = team.users.some(({ user }) => user.id === userId);
 
   if (!userBelongsToTeam) {
     return res.status(403).end();

@@ -6,7 +6,7 @@ import useUser from "lib/useUser";
 
 import Dashboard from "components/Dashboard";
 
-const DashboardPage: NextPage = () => {
+const FormsPage: NextPage = () => {
   const { user } = useUser({ redirectTo: "/login" });
   const { team, error } = useTeam();
 
@@ -17,12 +17,12 @@ const DashboardPage: NextPage = () => {
   if (error) return <>Could not find team.</>;
 
   return (
-    <Dashboard>
+    <Dashboard title="Forms">
       <Box borderWidth={1} borderRadius="lg" bg="white" p={6} boxShadow="md">
-        <Text>You can view this page because you are signed in.</Text>
+        <Text>Nothing to see here yet.</Text>
       </Box>
     </Dashboard>
   );
 };
 
-export default DashboardPage;
+export default FormsPage;
